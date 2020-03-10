@@ -14,7 +14,7 @@ import "bootstrap/dist/js/bootstrap.bundle.min";
 function App() {
     return (
         <div className="container-fluid text-primary">
-            <div className="row col-12 bg-secondary">
+            <div className="row col-12 bg-secondary ali">
               <HeaderMain />
             </div>
             
