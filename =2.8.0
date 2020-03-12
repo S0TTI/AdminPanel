@@ -1,0 +1,11 @@
++ eslint-plugin-flowtype@3.13.0
++ eslint-config-react-app@5.2.0
++ jquery@3.4.1
++ typescript@3.8.3
+updated 4 packages and audited 919026 packages in 9.086s
+
+58 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+

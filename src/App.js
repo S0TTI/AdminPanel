@@ -1,37 +1,65 @@
-import React from "react";
-import "./assets/css/App.css";
+import React, { Component } from "react";
+import { HashRouter, Route, Switch } from "react-router-dom";
+// import { renderRoutes } from 'react-router-config';
+import "./App.scss";
 
-import HeaderMain from "./component/header/Header.main.js";
-import ContentMain from "./component/content/Content.main.js";
-import SidebarMain from "./component/sidebar/Sidebar.main.js";
-import FoterMain from "./component/foter/Foter.main.js";
+const loading = () => (
+  <div className="animated fadeIn pt-1 text-center">
+    <i className="fa fa-spinner fa-lg fa-2x fa-spin mt-4"></i>
+    {"  "}
+    بارگزاری...
+  </div>
+);
 
-import "bootstrap/dist/css/bootstrap.min.css";
-import $ from "jquery";
-import Popper from "popper.js";
-import "bootstrap/dist/js/bootstrap.bundle.min";
+// Containers
+const DefaultLayout = React.lazy(() => import("./containers/DefaultLayout"));
 
-function App() {
+// Pages
+const Login = React.lazy(() => import("./views/Pages/Login"));
+const Register = React.lazy(() => import("./views/Pages/Register"));
+const Page404 = React.lazy(() => import("./views/Pages/Page404"));
+const Page500 = React.lazy(() => import("./views/Pages/Page500"));
+
+class App extends Component {
+  render() {
     return (
-        <div className="container-fluid text-primary">
-            <div className="row col-12 bg-secondary ali">
-              <HeaderMain />
-            </div>
-            
-            <div className="row col-12 ">
-              <div className="col-sm-12 col-md-9 col-lg-9 col-xl-9 bg-dark text-danger ">
-                <ContentMain />
-              </div>
-              <div className="d-none d-sm-none col-md-3 col-lg-3 col-xl-3 d-md-block text-dark bg-primary">
-                <SidebarMain /> 
-              </div>
-            </div>
-
-            <div className="row col-12 bg-success">
-              <FoterMain />
-            </div>
-        </div>
+      <HashRouter>
+        <React.Suspense fallback={loading()}>
+          <Switch>
+            <Route
+              exact
+              path="/login"
+              name="ورود"
+              render={props => <Login {...props} />}
+            />
+            <Route
+              exact
+              path="/register"
+              name="ثبت نام"
+              render={props => <Register {...props} />}
+            />
+            <Route
+              exact
+              path="/404"
+              name="صفحه 404"
+              render={props => <Page404 {...props} />}
+            />
+            <Route
+              exact
+              path="/500"
+              name="صفحه 500"
+              render={props => <Page500 {...props} />}
+            />
+            <Route
+              path="/"
+              name="خانه"
+              render={props => <DefaultLayout {...props} />}
+            />
+          </Switch>
+        </React.Suspense>
+      </HashRouter>
     );
+  }
 }
 
 export default App;
