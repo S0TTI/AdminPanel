@@ -1,10 +1,13 @@
 import React, { Component } from "react";
-import { Redirect, HashRouter, Route, Switch } from "react-router-dom";
+import { Redirect, HashRouter, BrowserHistory,Router , Route, Switch } from "react-router-dom";
 // import { renderRoutes } from 'react-router-config';
 import "./App.scss";
+import History from './utils/History.js';
+
 
 const loading = () => (
     <div className="animated fadeIn pt-1 text-center">
+    <br/><br/><br/>
         <i className="fa fa-spinner fa-lg fa-2x fa-spin mt-4"></i>
         {"  "}
         بارگزاری...
@@ -23,7 +26,7 @@ const Page500 = React.lazy(() => import("./views/Pages/Page500"));
 class App extends Component {
     render() {
         return (
-            <HashRouter>
+            <Router history={History}>
                 <React.Suspense fallback={loading()}>
                     <Switch>
                         <Route
@@ -58,7 +61,7 @@ class App extends Component {
                     </Switch>
                 </React.Suspense>
                 <Redirect from="/" to="/login" />
-            </HashRouter>
+            </Router>
         );
     }
 }
