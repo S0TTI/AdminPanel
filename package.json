@@ -27,11 +27,7 @@
     "eslint-plugin-flowtype": "^3.13.0",
     "flag-icon-css": "^3.3.0",
     "font-awesome": "^4.7.0",
-<<<<<<< HEAD
-    "jquery": "^3.4.1",
-=======
     "jquery": "^3.4.0",
->>>>>>> 7e1374ff459034e8143d486e7d79d76e1fcac70b
     "node-sass": "^4.13.1",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
