@@ -60,7 +60,6 @@ class App extends Component {
                         />
                     </Switch>
                 </React.Suspense>
-                <Redirect from="/" to="/login" />
             </Router>
         );
     }
