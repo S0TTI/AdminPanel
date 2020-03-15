@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import History from "./History.js";
 
-const SERVER_URL = "http://82227120.ngrok.io";
+const SERVER_URL = "http://localhost:5000";
 
 const login = async data => {
     const LOGIN_ENDPOINT = `${SERVER_URL}/api/login`;
