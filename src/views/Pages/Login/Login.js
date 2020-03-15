@@ -16,11 +16,11 @@ import {
 } from "reactstrap";
 import { login , register } from "../../../utils/Api.js";
 
-export default class Login extends React.Component {
+export default class Login extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            email: "",
+            username: "",
             password: ""
         };
     }
@@ -73,9 +73,9 @@ export default class Login extends React.Component {
                                                 </InputGroupAddon>
                                                 <Input
                                                     type="email"
-                                                    name="email"
-                                                    placeholder="Enter email"
-                                                    value={this.state.email}
+                                                    name="username"
+                                                    placeholder="یوزر نیم یا ایمیل خود را وارد کنید"
+                                                    value={this.state.username}
                                                     onChange={
                                                         this.handleInputChange
                                                     }
@@ -92,7 +92,7 @@ export default class Login extends React.Component {
                                                 <Input
                                                     type="password"
                                                     name="password"
-                                                    placeholder="Enter password"
+                                                    placeholder="پسورد خود را وارد کنید"
                                                     value={this.state.password}
                                                     onChange={
                                                         this.handleInputChange
