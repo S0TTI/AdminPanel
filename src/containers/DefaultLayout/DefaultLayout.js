@@ -20,6 +20,10 @@ import navigation from "../../_nav";
 // routes config
 import routes from "../../routes";
 
+import {
+    DelletUserData
+} from "../../utils/auth";
+
 const DefaultAside = React.lazy(() => import("./DefaultAside"));
 const DefaultFooter = React.lazy(() => import("./DefaultFooter"));
 const DefaultHeader = React.lazy(() => import("./DefaultHeader"));
@@ -35,9 +39,10 @@ class DefaultLayout extends Component {
 
     signOut(e) {
         e.preventDefault();
+        DelletUserData();
         this.props.history.push("/login");
     }
-
+    
     render() {
         return (
             <div className="app">

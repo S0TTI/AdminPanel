@@ -14,7 +14,14 @@ import {
     InputGroupText,
     Row
 } from "reactstrap";
-import { login , register } from "../../../utils/Api.js";
+import { login, register } from "../../../utils/Api";
+import {
+    UserHaveToken,
+    LastLocationReferer
+} from "../../../utils/auth";
+import History from "../../../utils/History";
+
+const referer = LastLocationReferer || "/dashbord";
 
 export default class Login extends Component {
     constructor(props) {
@@ -52,6 +59,9 @@ export default class Login extends Component {
     };
 
     render() {
+        if(UserHaveToken) {
+            History.push(referer);
+        }    
         return (
             <div className="app flex-row align-items-center">
                 <Container>

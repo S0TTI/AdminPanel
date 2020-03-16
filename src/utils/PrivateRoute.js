@@ -1,23 +1,20 @@
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
-import { useAuth } from "./auth";
+import { UserHaveToken, LastLocation } from "./auth";
 
 function PrivateRoute({ component: Component, ...rest }) {
-    const { authTokens } = useAuth();
 
     return (
         <Route
             {...rest}
             render={props =>
-                authTokens ? (
-                    <Component {...props} />
+                UserHaveToken ? (
+                    (console.log("in true in privaterout", UserHaveToken),
+                    <Component  {...props} />
+                    )
                 ) : (
-                    <Redirect
-                        to={{
-                            pathname: "/login",
-                            state: { referer: props.location }
-                        }}
-                    />
+                    (console.log("in flase in privaterout", UserHaveToken),
+                    LastLocation(props.location), (<Redirect to="/login" />))
                 )
             }
         />

@@ -1,8 +1,12 @@
 import React from "react";
+
 import axios from "axios";
 import History from "./History.js";
+import { UserTokenSet , LastLocationReferer } from "./auth";
 
 const SERVER_URL = "http://localhost:5000";
+
+const referer = LastLocationReferer.pathname || "/dashbord";
 
 const login = async data => {
     const LOGIN_ENDPOINT = `${SERVER_URL}/api/login`;
@@ -10,9 +14,8 @@ const login = async data => {
         .post(LOGIN_ENDPOINT, data)
         .then(response => {
             if (response.status === 200) {
-                let token = response.data.token;
-                localStorage.setItem("access_token", token);
-                History.push("/dashboard");
+                UserTokenSet(response.data)
+                History.push(referer);
             } else {
                 const error = new Error(response.error);
                 throw error;
