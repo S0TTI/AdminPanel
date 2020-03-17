@@ -21,6 +21,7 @@ function DelletUserData(){
 };
 
 const UserDataContext = React.createContext();
+const SERVER_URL = "https://jsonplaceholder.ir";
 
 
-export { UserDataContext, UserTokenSet, DelletUserData , LastLocation , LastLocationReferer, UserHaveToken, UserToken };
+export { UserDataContext, UserTokenSet, DelletUserData , LastLocation , LastLocationReferer, UserHaveToken, UserToken, SERVER_URL };

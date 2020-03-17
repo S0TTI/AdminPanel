@@ -2,9 +2,7 @@ import React from "react";
 
 import axios from "axios";
 import History from "./History.js";
-import { UserTokenSet , LastLocationReferer } from "./auth";
-
-const SERVER_URL = "http://localhost:5000";
+import { UserTokenSet , LastLocationReferer, SERVER_URL } from "./auth";
 
 const referer = LastLocationReferer.pathname || "/dashbord";
 
@@ -47,4 +45,11 @@ const logout = () => {
     localStorage.removeItem("expire_at");
 };
 
-export { login, register, logout };
+
+ 
+function Getdata() {
+      return [{ "firstname": "first", "lastname": "f"}, {"firstname": "second", "lastname": "l"}];
+    }
+
+
+export { login, register, logout,Getdata };

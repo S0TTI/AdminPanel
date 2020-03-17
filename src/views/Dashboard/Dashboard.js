@@ -23,7 +23,11 @@ import {
 import { CustomTooltips } from '@coreui/coreui-plugin-chartjs-custom-tooltips';
 import { getStyle, hexToRgba } from '@coreui/coreui/dist/js/coreui-utilities'
 
+import User from "./component/User";
+import Basic from "./component/UploadFile";
+
 const Widget03 = lazy(() => import('../../views/Widgets/Widget03'));
+
 
 const brandPrimary = getStyle('--primary')
 const brandSuccess = getStyle('--success')
@@ -459,6 +463,7 @@ class Dashboard extends Component {
     this.toggle = this.toggle.bind(this);
     this.onRadioBtnClick = this.onRadioBtnClick.bind(this);
 
+
     this.state = {
       dropdownOpen: false,
       radioSelected: 2,
@@ -483,6 +488,10 @@ class Dashboard extends Component {
 
     return (
       <div className="animated fadeIn">
+<User />
+<Row>
+<Basic/>
+</Row>
         <Row>
           <Col xs="12" sm="6" lg="3">
             <Card className="text-white bg-info">
@@ -1121,6 +1130,8 @@ class Dashboard extends Component {
             </Card>
           </Col>
         </Row>
+
+        
       </div>
     );
   }

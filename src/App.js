@@ -9,7 +9,7 @@ import {
 // import { renderRoutes } from 'react-router-config';
 import "./App.scss";
 import History from "./utils/History.js";
-import { UserDataContext, UserHaveToken, UserToken } from "./utils/auth";
+import { UserDataContext, UserHaveToken, UserToken, SERVER_URL } from "./utils/auth";
 import PrivateRoute from "./utils/PrivateRoute";
 
 const loading = () => (
@@ -35,7 +35,7 @@ const Page500 = React.lazy(() => import("./views/Pages/Page500"));
 class App extends Component {
     render() {
         return (
-            <UserDataContext.Provider value={{  UHT: UserHaveToken , UT: UserToken}}>
+            <UserDataContext.Provider value={{  UHT: UserHaveToken , UT: UserToken , ServerUrl: SERVER_URL}}>
                 <Router history={History}>
                     <React.Suspense fallback={loading()}>
                         <Switch>

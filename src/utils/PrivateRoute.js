@@ -8,7 +8,7 @@ function PrivateRoute({ component: Component, ...rest }) {
         <Route
             {...rest}
             render={props =>
-                UserHaveToken ? (
+                true ? (
                     (console.log("in true in privaterout", UserHaveToken),
                     <Component  {...props} />
                     )
